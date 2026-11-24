@@ -18,5 +18,4 @@ def pad_sequences(seqs: list, pad_value: int = 0, max_len: int | None = None) ->
         else:
             seqs[i] = seqs[i][0:max_len]
 
-    print(seqs)
     return np.array(seqs)
