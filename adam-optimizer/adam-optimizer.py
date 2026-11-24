@@ -21,10 +21,10 @@ def adam_step(
     param = np.array(param)
 
     m_t = beta1*m + (1-beta1)*grad
-    v_t = beta2*v + (1-beta2)*(np.power(grad, 2))
+    v_t = beta2*v + (1-beta2)*(grad**2)
 
-    m_new = m_t/(1-np.power(beta1, t))
-    v_new = v_t/(1-np.power(beta2, t))
+    m_new = m_t/(1-(beta1**t))
+    v_new = v_t/(1-(beta2**t))
 
     param_new = param - (lr*(m_new/(np.sqrt(v_new) + eps)))
 
