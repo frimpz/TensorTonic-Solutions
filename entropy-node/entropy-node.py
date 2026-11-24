@@ -13,10 +13,8 @@ def entropy_node(y: list[int]) -> float:
     if len(values) == 1:
         return 0.0
 
-    summation = 0
-    for i in counts:
-        p_i = i/total
-        summation += p_i * np.log2(p_i)
-        
-    return -1 * summation
+    prob = counts/total
+
+    h_s = -1*np.sum(prob*np.log2(prob))
+    return h_s
     
